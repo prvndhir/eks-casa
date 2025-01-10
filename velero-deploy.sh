@@ -22,7 +22,7 @@ if [ `echo $?` -eq 1 ];then
 fi
 
 echo "-------Create an IAM user and set permissions for velero"
-aws iam create-user --user-name vuser4yong1
+aws iam create-user --user-name vuser4zumigo
 
 cat > velero-policy.json <<EOF
 {
@@ -67,14 +67,14 @@ cat > velero-policy.json <<EOF
 EOF
 
 aws iam put-user-policy \
-  --user-name vuser4yong1 \
-  --policy-name vpolicy4yong1 \
+  --user-name vuser4zumigo \
+  --policy-name vpolicy \
   --policy-document file://velero-policy.json
 
-aws iam create-access-key --user-name vuser4yong1 > vuser4yong1.txt
+aws iam create-access-key --user-name vuser4zumigo > vuser4zumigo.txt
 
-export V_AWS_ACCESS_KEY_ID=$(grep AccessKeyId vuser4yong1.txt | awk '{print $2}' | sed -e 's/\"//g' | sed -e 's/\,//g')
-export V_AWS_SECRET_ACCESS_KEY=$(grep SecretAccessKey vuser4yong1.txt | awk '{print $2}' | sed -e 's/\"//g' | sed -e 's/\,//g')
+export V_AWS_ACCESS_KEY_ID=$(grep AccessKeyId vuser4zumigo.txt | awk '{print $2}' | sed -e 's/\"//g' | sed -e 's/\,//g')
+export V_AWS_SECRET_ACCESS_KEY=$(grep SecretAccessKey vuser4zumigo.txt | awk '{print $2}' | sed -e 's/\"//g' | sed -e 's/\,//g')
 
 cat << EOF  > ./credentials-velero
 [default]
@@ -91,11 +91,11 @@ velero install \
     --snapshot-location-config region=$AWS_REGION \
     --secret-file ./credentials-velero
 
-echo "-------One time On-Demand Backup of yong-postgresql namespace"
+echo "-------One time On-Demand Backup of postgresql namespace"
 kubectl wait --for=condition=ready --timeout=180s -n velero pod -l component=velero
-velero backup create yong-postgresql-backup --include-namespaces yong-postgresql
+velero backup create postgresql-backup --include-namespaces postgresql
 
-echo "-------Hourly scheduled backup of yong-postgresql namespace"
+echo "-------Hourly scheduled backup of postgresql namespace"
 kubectl create -f velero-schedule.yaml
 
 endtime=$(date +%s)
@@ -103,6 +103,6 @@ duration=$(( $endtime - $starttime ))
 echo "" | awk '{print $1}'
 echo "-------Total time to enable Velero backup for EKS is $(($duration / 60)) minutes $(($duration % 60)) seconds."
 echo "" | awk '{print $1}'
-echo "-------Created by Yongkang"
-echo "-------Email me if any suggestions or issues he@yongkang.cloud"
+echo "-------Created by PraveenDhir"
+echo "-------Email me if any suggestions or issues he@PraveenDhir.cloud"
 echo "" | awk '{print $1}'

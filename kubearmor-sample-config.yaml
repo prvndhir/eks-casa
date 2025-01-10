@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: kustomize
     app.kubernetes.io/created-by: kubearmoroperator
   name: kubearmorconfig-default
-  namespace: yong-kubearmor
+  namespace: zumigo-kubearmor
 spec:
   defaultCapabilitiesPosture: audit
   defaultFilePosture: audit

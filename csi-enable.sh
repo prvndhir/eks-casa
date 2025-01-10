@@ -1,6 +1,6 @@
 echo '-------Enable CSI on an EKS Cluster'
 
-export my_eks_cluster=$(eksctl get clusters | grep -v NAME | grep eks4yong1 | awk '{print $1}' | tail -1)
+export my_eks_cluster=$(eksctl get clusters | grep -v NAME | grep ekstest | awk '{print $1}' | tail -1)
 eksctl utils associate-iam-oidc-provider --cluster $my_eks_cluster --approve --region $AWS_REGION
 # aws iam detach-role-policy --role-name AmazonEKS_EBS_CSI_DriverRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy
 # aws iam delete-role --role-name AmazonEKS_EBS_CSI_DriverRole 
@@ -12,10 +12,10 @@ eksctl create iamserviceaccount \
   --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
   --approve \
   --role-only \
-  --role-name Yong-AmazonEKS_EBS_CSI_DriverRole
+  --role-name Zumigo-AmazonEKS_EBS_CSI_DriverRole
 
 myaccount_id=$(aws sts get-caller-identity --query "Account" | sed -e 's/\"//g')
-eksctl create addon --name aws-ebs-csi-driver --cluster $my_eks_cluster --service-account-role-arn arn:aws:iam::$myaccount_id:role/Yong-AmazonEKS_EBS_CSI_DriverRole --force
+eksctl create addon --name aws-ebs-csi-driver --cluster $my_eks_cluster --service-account-role-arn arn:aws:iam::$myaccount_id:role/Zumigo-AmazonEKS_EBS_CSI_DriverRole --force
 
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotclasses.yaml
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/external-snapshotter/master/client/config/crd/snapshot.storage.k8s.io_volumesnapshotcontents.yaml

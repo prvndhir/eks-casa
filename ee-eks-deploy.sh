@@ -8,7 +8,7 @@ echo $MY_CLUSTER-$(date +%s)$RANDOM > casa_ee_eks_clustername
 eksctl create cluster \
   --name $(cat casa_ee_eks_clustername) \
   --version $MY_K8S_VERSION \
-  --nodegroup-name workers4yong1 \
+  --nodegroup-name workers4ekstest \
   --nodes 1 \
   --nodes-min 1 \
   --nodes-max 3 \
@@ -28,6 +28,6 @@ duration=$(( $endtime - $starttime ))
 echo "" | awk '{print $1}'
 echo "-------Total time to build an EKS cluster with PostgreSQL is $(($duration / 60)) minutes $(($duration % 60)) seconds."
 echo "" | awk '{print $1}'
-echo "-------Created by Yongkang"
-echo "-------Email me if any suggestions or issues he@yongkang.cloud"
+echo "-------Created by PraveenDhir"
+echo "-------Email me if any suggestions or issues he@PraveenDhir.cloud"
 echo "" | awk '{print $1}'

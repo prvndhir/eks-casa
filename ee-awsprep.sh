@@ -41,7 +41,7 @@ echo "" | awk '{print $1}'
 echo "You are ready to deploy now!"
 echo "" | awk '{print $1}'
 
-echo "-------Created by Yongkang"
-echo "-------Email me if any suggestions or issues he@yongkang.cloud"
+echo "-------Created by PraveenDhir"
+echo "-------Email me if any suggestions or issues he@PraveenDhir.cloud"
 echo "" | awk '{print $1}'
 

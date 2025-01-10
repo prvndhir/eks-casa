@@ -1,13 +1,13 @@
 apiVersion: velero.io/v1
 kind: Schedule
 metadata:
-  name: hourly4yong1
+  name: hourly4velero
   namespace: velero
 spec:
   schedule: 0 * * * *
   template:
     includedNamespaces:
-    - 'yong-postgresql'
+    - 'postgresql'
     excludedNamespaces:
     includedResources:
     - '*'

@@ -1,4 +1,4 @@
-#### Follow [@YongkangHe](https://twitter.com/yongkanghe) on Twitter, Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
+#### Follow [@PraveenDhirHe](https://twitter.com/PraveenDhirhe) on Twitter, Subscribe [K8s Data Management](https://www.youtube.com/channel/UCm-sw1b23K-scoVSCDo30YQ?sub_confirmation=1) Youtube Channel
 
 I just want to build an EKS Cluster to play with the various Security and Data Management capabilities e.g. Security Scans, Backup/Restore, Disaster Recovery and Application Mobility. 
 
@@ -11,7 +11,7 @@ This script based automation allows you to build a ready-to-use EKS demo environ
 1. Go to open AWS Cloud Shell
 2. Clone the github repo, run below command
 ````
-git clone https://github.com/yongkanghe/eks-casa.git
+git clone https://github.com/prvndhir/eks-casa.git
 ````
 3. Install the required tools (eksctl, kubectl, helm)
 ````
@@ -73,7 +73,6 @@ https://cloudcasa.io
 
 # Contributors
 
-#### Follow [Yongkang He](http://yongkang.cloud) on LinkedIn
 #### Join [Kubernetes Data Management](https://www.linkedin.com/groups/13983251) LinkedIn Group
 #### Join [Kubernetes Data Management](http://t.k8sug.com) Telegram Group
 #### Join [Kubernetes Meetup](http://k8sug.com) User Group

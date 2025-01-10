@@ -2,11 +2,11 @@ apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
   name: block-service-access-token-access
-  namespace: yong-nginx
+  namespace: nginx
 spec:
   selector:
     matchLabels:
-      app: nginx4yong1
+      app: nginx
   file:
     matchDirectories:
     - dir: /run/secrets/kubernetes.io/serviceaccount/

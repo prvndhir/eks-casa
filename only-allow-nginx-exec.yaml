@@ -2,11 +2,11 @@ apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
   name: only-allow-nginx-exec
-  namespace: yong-nginx
+  namespace: nginx
 spec:
   selector:
     matchLabels:
-      app: nginx4yong1
+      app: nginx
   file:
     matchDirectories:
     - dir: /

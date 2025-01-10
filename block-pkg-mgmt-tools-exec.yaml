@@ -2,11 +2,11 @@ apiVersion: security.kubearmor.com/v1
 kind: KubeArmorPolicy
 metadata:
   name: block-pkg-mgmt-tools-exec
-  namespace: yong-nginx
+  namespace: nginx
 spec:
   selector:
     matchLabels:
-      app: nginx4yong1
+      app: nginx
   process:
     matchPaths:
     - path: /usr/bin/apt
