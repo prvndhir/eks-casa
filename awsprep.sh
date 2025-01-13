@@ -20,14 +20,13 @@ if [ ! -f ~/eks-casa/helm ]; then
   rm helm-v3.7.0-linux-amd64.tar.gz
   rm -rf linux-amd64
 fi
-
 if [ ! -f ~/eks-casa/tfenv ]; then
   echo "Install terraform"
   git clone https://github.com/tfutils/tfenv.git ./tfenv
-  mkdir ~/bin
-  ln -s ~/tfenv/bin/* ~/bin/
-  tfenv install latest
-  tfenv use latest
+  tfenv/bin/tfenv install latest
+  tfenv/bin/tfenv use latest
+  ln -s ~/eks-casa/tfenv/bin/terraform  /bin/terraform
+  terraform --version
 fi
 
 cat ~/.bashrc | grep eks-casa
